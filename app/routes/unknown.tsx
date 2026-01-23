@@ -1,4 +1,4 @@
-import logo from '../assets/visludica.jpg';
+import logo from '../assets/forbidden.png';
 import '../app.css';
 import {useEffect, useState} from "react";
 import type {Route} from "../../.react-router/types/app/routes/+types/home";
