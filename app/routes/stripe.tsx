@@ -18,7 +18,10 @@ function Stripe() {
     }
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/auth/user`, { credentials: 'include' })
+        fetch(`${import.meta.env.VITE_API_URL}/auth/user`, {
+            credentials: 'include',
+            cache: 'no-store'
+        })
             .then(res => res.json())
             .then(data => setUser(data.user));
     }, []);
