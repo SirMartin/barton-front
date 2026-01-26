@@ -18,9 +18,39 @@ function Unknown() {
     }
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/auth/user`, {credentials: 'include', cache: 'no-store'})
+        // Check if there's an auth token in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const authToken = urlParams.get('auth_token');
+
+        if (authToken) {
+            // Exchange token for session
+            fetch(`${import.meta.env.VITE_API_URL}/auth/exchange-token`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token: authToken })
+            })
             .then(res => res.json())
-            .then(data => setUser(data.user));
+            .then(data => {
+                // Remove token from URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+                setUser(data.user);
+            })
+            .catch(err => {
+                console.error('Token exchange failed:', err);
+                // Fall back to checking session
+                checkSession();
+            });
+        } else {
+            // No token, check existing session
+            checkSession();
+        }
+
+        function checkSession() {
+            fetch(`${import.meta.env.VITE_API_URL}/auth/user`, {credentials: 'include', cache: 'no-store'})
+                .then(res => res.json())
+                .then(data => setUser(data.user));
+        }
     }, []);
 
     return (
