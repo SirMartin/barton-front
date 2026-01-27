@@ -9,3 +9,6 @@
 .netlify
 
 .idea
+
+# dotenv environment variables file
+.env
