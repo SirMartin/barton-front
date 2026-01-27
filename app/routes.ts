@@ -4,4 +4,5 @@ export default [
     index("routes/home.tsx"),
     route("army", "routes/army.tsx"),
     route("stripe", "routes/stripe.tsx"),
-    route("unknown", "routes/unknown.tsx")] satisfies RouteConfig;
+    route("unknown", "routes/unknown.tsx"),
+    route("users", "routes/users.tsx")] satisfies RouteConfig;
