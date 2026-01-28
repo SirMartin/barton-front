@@ -1,4 +1,4 @@
-import logo from '../assets/forbidden.png';
+import logo from '../assets/forbidden.jpg';
 import '../app.css';
 import {useEffect, useState} from "react";
 import type {Route} from "../../.react-router/types/app/routes/+types/home";
@@ -59,7 +59,7 @@ function Unknown() {
                 <img src={logo} className="App-logo" alt="logo"/>
                 <p>
                     Lo siento <b>{user ? user.name : "Unknown"}</b>, no estás en la lista. Si crees que se trata de un
-                    error contacta con Arribas.
+                    error contacta con <a href="mailto:contacto@campamentobarton.com">contacto@campamentobarton.com</a>.
                 </p>
             </header>
         </div>
