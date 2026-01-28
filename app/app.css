@@ -11,7 +11,7 @@
     font-family: 'Montserrat', 'Roboto', 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 26px;
-    background-image: url('https://campamentobarton.com/wp-content/uploads/2024/12/fondo_fila.jpg');
+    background-image: url("../app/assets/fondo_fila.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

@@ -1,4 +1,4 @@
-import logo from '../assets/cartel-campamento-2026.jpg';
+import logo from '../assets/cartel-barton.jpg';
 import '../app.css';
 
 export function Welcome() {
@@ -10,7 +10,7 @@ export function Welcome() {
         <div className="flex flex-col items-center text-center">
           <img
             src={logo}
-            className="w-full max-w-md h-auto rounded-barton shadow-barton-strong mb-2"
+            className="max-h-[640px] w-auto rounded-barton shadow-barton-strong mb-2"
             alt="Cartel Campamento 2026"
           />
           <h2 className="text-2xl md:text-3xl text-barton-primary mb-1">
