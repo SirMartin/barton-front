@@ -54,14 +54,28 @@ function Unknown() {
     }, []);
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    Lo siento <b>{user ? user.name : "Unknown"}</b>, no estás en la lista. Si crees que se trata de un
-                    error contacta con <a href="mailto:contacto@campamentobarton.com">contacto@campamentobarton.com</a>.
-                </p>
-            </header>
+        <div className="min-h-screen flex flex-col items-center justify-center py-2">
+            <div className="barton-overlay max-w-3xl w-full mx-4 p-6">
+                <div className="flex flex-col items-center text-center">
+                    <h1 className="text-3xl md:text-4xl text-barton-primary mb-4 font-bold">
+                        Campamento Barton 2026
+                    </h1>
+                    <img
+                        src={logo}
+                        className="w-full max-w-md h-auto rounded-barton shadow-barton-strong mb-4"
+                        alt="Forbidden"
+                    />
+                    <p className="text-xl md:text-2xl text-barton-dark">
+                        Lo siento <b className="text-barton-primary">{user ? user.name : "Unknown"}</b>, no estás en la lista.
+                    </p>
+                    <p className="text-lg md:text-xl text-barton-dark mt-3">
+                        Si crees que se trata de un error contacta con{' '}
+                        <a href="mailto:contacto@campamentobarton.com" className="text-barton-primary hover:text-barton-secondary font-semibold">
+                            contacto@campamentobarton.com
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
     );
 }
