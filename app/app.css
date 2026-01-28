@@ -2,48 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap');
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+@layer base {
+  html,
+  body {
+    @apply bg-barton-light text-barton-dark;
+    font-family: 'Montserrat', 'Roboto', 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    background-image: url('https://campamentobarton.com/wp-content/uploads/2024/12/fondo_fila.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-barton-dark;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl mt-4;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl mt-4;
+  }
+
+  a {
+    @apply text-barton-primary font-medium transition-all duration-300;
+    text-decoration: none;
+  }
+
+  a:hover {
+    @apply text-barton-secondary;
+    opacity: 0.8;
   }
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@layer components {
+  .barton-container {
+    @apply max-w-barton mx-auto px-8 py-10;
+  }
 
+  .barton-card {
+    @apply bg-barton-light rounded-barton shadow-barton p-6;
+  }
+
+  .barton-btn {
+    @apply bg-barton-primary text-white font-semibold px-6 py-3 rounded-barton-button transition-all duration-300;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .barton-btn:hover {
+    @apply bg-barton-secondary text-white;
+    opacity: 1;
+  }
+
+  .barton-btn-secondary {
+    @apply bg-barton-secondary text-white font-semibold px-6 py-3 rounded-barton-pill transition-all duration-300;
+    text-transform: uppercase;
+  }
+
+  .barton-btn-secondary:hover {
+    @apply bg-barton-primary;
+    opacity: 0.9;
+  }
+
+  .barton-overlay {
+    @apply bg-barton-light bg-opacity-95 rounded-barton shadow-barton-strong;
+  }
+}
 
 #root {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
-
 
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 
+.App-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: #222222;
+}
+
 .App-logo {
-  height: 40vmin;
+  height: 60vmin;
   pointer-events: none;
 }
 
@@ -53,21 +113,26 @@ a:hover {
   }
 }
 
-.card {
-  padding: 2em;
+@media (max-width: 1050px) {
+  .barton-container {
+    @apply px-6;
+  }
 }
 
-.read-the-docs {
-  color: #888;
-}
+@media (max-width: 767px) {
+  .barton-container {
+    @apply px-4 py-8;
+  }
 
-.App-link {
-  font-size: calc(10px + 2vmin);
-  color: #61dafb;
-  text-decoration: none;
-}
+  h1 {
+    @apply text-3xl;
+  }
 
-.App-link:hover {
-  color: #45facb;
-  text-decoration: none;
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
 }
